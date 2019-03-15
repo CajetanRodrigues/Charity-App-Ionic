@@ -4,6 +4,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { NavController } from '@ionic/angular';
 import { StreamingMedia, StreamingVideoOptions } from '@ionic-native/streaming-media/ngx';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-single-charity',
@@ -17,7 +18,8 @@ export class SingleCharityPage implements OnInit {
   constructor(public route : ActivatedRoute,
     public httpClient : HttpClient,
     public navCtrl : NavController,
-    private streamingMedia: StreamingMedia
+    private streamingMedia: StreamingMedia,
+    public toastController: ToastController
     ) { 
     const id = this.route.snapshot.paramMap.get('id')
     this.CharityObject =  this.
@@ -55,6 +57,17 @@ export class SingleCharityPage implements OnInit {
       this.charityTrusts = data;
       console.log(this.charityTrusts);
     });
+    this.
+    httpClient.
+    get('http://localhost:8080/rest/sendMail?recipientsEmail=rigrodtan%40gmail.com');
+    
+    this.charityTrusts
+    .subscribe(data => {
+      console.log('my data: ' +  JSON.stringify(data));
+      this.charityTrusts = data;
+      console.log(this.charityTrusts);
+    });
+    this.presentToast();
   }
   playVideo(){
     let options: StreamingVideoOptions = {
@@ -68,6 +81,13 @@ export class SingleCharityPage implements OnInit {
   }
   goBack(){
     this.navCtrl.navigateRoot("");
+  }
+  async presentToast() {
+    const toast = await this.toastController.create({
+      message: 'Check mail for confirmation!',
+      duration: 2000
+    });
+    toast.present();
   }
 
 }
