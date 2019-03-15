@@ -13,7 +13,10 @@ const routes: Routes = [
   { path: 'home-results/:category', loadChildren: './pages/home-results/home-results.module#HomeResultsPageModule' },
 
   { path: 'home-page', loadChildren: './pages/home-page/home-page.module#HomePagePageModule' },
+  { path: 'single-charity/:id', loadChildren: './pages/single-charity/single-charity.module#SingleCharityPageModule' },
+
   { path: 'single-charity', loadChildren: './pages/single-charity/single-charity.module#SingleCharityPageModule' },
+  { path: 'raise-funds', loadChildren: './pages/raise-funds/raise-funds.module#RaiseFundsPageModule' },
 ];
 
 @NgModule({

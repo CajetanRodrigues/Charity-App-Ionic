@@ -22,6 +22,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./home-results.page.scss']
 })
 export class HomeResultsPage {
+  c = []
   charitytrusts: Observable<any>;
   searchKey = '';
   yourLocation = '123 Test Street';
@@ -49,6 +50,7 @@ export class HomeResultsPage {
       console.log('my data: ' +  JSON.stringify(data));
       this.charitytrusts = data;
     });
+    
     
   }
   
@@ -154,6 +156,6 @@ export class HomeResultsPage {
     return await popover.present();
   }
   goToSingleCharityTrust(object : any){
-    this.navCtrl.navigateRoot('/single-charity');
+    this.navCtrl.navigateRoot('/single-charity/'+object.id);
   }
 }

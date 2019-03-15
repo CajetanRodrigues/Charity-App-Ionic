@@ -1,9 +1,51 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>single-charity</ion-title>
+      
+
+    <ion-title><ion-icon (click)="goBack()" name="arrow-round-back"></ion-icon>      single-charity</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
+    <ion-card>
+        <ion-card-header>
+          <ion-card-subtitle>{{CharityObject.charityname}}</ion-card-subtitle>
+          <ion-card-title>{{CharityObject.url}}</ion-card-title>
+        </ion-card-header>
+      
+        <ion-card-content>
+            <ion-list>
+                <!-- <ion-thumbnail slot="start">
+                    <ion-img [src]={{CharityObject.image}}></ion-img>
+                  </ion-thumbnail> -->
+                <ion-item>
+                  <ion-label>{{CharityObject.email}}</ion-label>
+                </ion-item>
+                <ion-item>
+                  <ion-label>{{CharityObject.zipcode}}</ion-label>
+                </ion-item>
+                <ion-item>
+                  <ion-label>{{CharityObject.category}}</ion-label>
+                </ion-item>
+                <ion-item>
+                  <ion-label>{{CharityObject.slogan}}</ion-label>
+                </ion-item>
+                
+              </ion-list>
 
+
+              <ion-item>
+                  <ion-label  position="floating">Enter your amount here</ion-label>
+                  <ion-input [(ngModel)]="amount" name="amount"></ion-input>
+                </ion-item>
+              <ion-button icon-left size="medium" expand="full" shape="round" color="dark" (click)="donate()">Donate</ion-button>
+
+        </ion-card-content>
+      </ion-card>
+
+     
+           
+          
+      
+ 
 </ion-content>
