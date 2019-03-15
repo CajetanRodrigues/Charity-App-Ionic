@@ -1,10 +1,31 @@
 <ion-header>
-  <ion-toolbar>
-      
-
-    <ion-title><ion-icon (click)="goBack()" name="arrow-round-back"></ion-icon>      single-charity</ion-title>
-  </ion-toolbar>
-</ion-header>
+    <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+        <ion-menu-button color="secondary"></ion-menu-button>
+      </ion-buttons>
+      <ion-title>
+          <ion-text color="light">
+            <ion-text color="light" class="fw700">Charity Foundation</ion-text>
+          </ion-text>
+          <ion-button size="small" shape="round" color="medium" (click)="goBack()">Go Back
+            </ion-button>
+      </ion-title>
+      <ion-buttons slot="end">
+        <ion-button size="small" shape="round" color="medium" (click)="notifications()">
+          <ion-icon name="notifications"></ion-icon>
+          <ion-badge color="dark" slot="end">2</ion-badge>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+    <ion-toolbar color="dark">
+      <ion-searchbar [(ngModel)]="searchKey"></ion-searchbar>
+      <ion-buttons slot="end">
+        <ion-button size="small" shape="round" color="medium" (click)="searchFilter()">
+          <ion-icon name="options"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
 
 <ion-content padding>
     <ion-card>
@@ -42,7 +63,8 @@
 
         </ion-card-content>
       </ion-card>
-
+      <ion-button size="small" shape="round" color="medium" (click)="playVideo()">Success Stories
+        </ion-button>
      
            
           

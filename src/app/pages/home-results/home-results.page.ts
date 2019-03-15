@@ -53,7 +53,9 @@ export class HomeResultsPage {
     
     
   }
-  
+  goBack(){
+    this.navCtrl.navigateRoot("");
+  }
 
   // ionViewWillEnter() {
   //   this.menuCtrl.enable(true);
