@@ -7,9 +7,13 @@ const routes: Routes = [
   { path: 'about', loadChildren: './pages/about/about.module#AboutPageModule' },
   { path: 'settings', loadChildren: './pages/settings/settings.module#SettingsPageModule' },
   { path: 'edit-profile', loadChildren: './pages/edit-profile/edit-profile.module#EditProfilePageModule' },
+  { path: 'edit-profile', loadChildren: './pages/edit-profile/edit-profile.module#EditProfilePageModule' },
   { path: 'home-results', loadChildren: './pages/home-results/home-results.module#HomeResultsPageModule' },
-  { path: 'home-page', loadChildren: './home-page/home-page.module#HomePagePageModule' },
+
+  { path: 'home-results/:category', loadChildren: './pages/home-results/home-results.module#HomeResultsPageModule' },
+
   { path: 'home-page', loadChildren: './pages/home-page/home-page.module#HomePagePageModule' },
+  { path: 'single-charity', loadChildren: './pages/single-charity/single-charity.module#SingleCharityPageModule' },
 ];
 
 @NgModule({

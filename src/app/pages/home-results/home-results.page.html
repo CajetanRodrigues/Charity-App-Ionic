@@ -50,7 +50,7 @@
   </ion-card>
 
   
-    <ion-card *ngFor="let charitytrust of charitytrusts">
+    <ion-card *ngFor="let charitytrust of charitytrusts" (click)="goToSingleCharityTrust(charitytrust)">
         <ion-card-header>
           <ion-card-subtitle>From : {{charitytrust.state}}  {{charitytrust.country}}</ion-card-subtitle>
           <ion-card-subtitle>Category : {{charitytrust.category}}</ion-card-subtitle>

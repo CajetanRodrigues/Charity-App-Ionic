@@ -14,6 +14,7 @@ import { SearchFilterPage } from '../../pages/modal/search-filter/search-filter.
 import { ImagePage } from './../modal/image/image.page';
 // Call notifications test by Popover and Custom Component.
 import { NotificationsComponent } from './../../components/notifications/notifications.component';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-home-results',
@@ -33,18 +34,22 @@ export class HomeResultsPage {
     public alertCtrl: AlertController,
     public modalCtrl: ModalController,
     public toastCtrl: ToastController,
-    public httpClient: HttpClient
+    public httpClient: HttpClient,
+    public route : ActivatedRoute
   ) {
+    const category = this.route.snapshot.paramMap.get('category');
+
     this.charitytrusts = 
     this.
     httpClient.
-    get('http://localhost:8080/rest/get-charity-trusts');
+    get('http://localhost:8080/rest/charity-trust-category/'+category);
     
     this.charitytrusts
     .subscribe(data => {
       console.log('my data: ' +  JSON.stringify(data));
       this.charitytrusts = data;
-    })
+    });
+    
   }
   
 
@@ -148,5 +153,7 @@ export class HomeResultsPage {
     });
     return await popover.present();
   }
-
+  goToSingleCharityTrust(object : any){
+    this.navCtrl.navigateRoot('/single-charity');
+  }
 }

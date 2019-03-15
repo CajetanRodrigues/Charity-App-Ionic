@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home-page',
@@ -13,10 +14,15 @@ export class HomePagePage implements OnInit {
     'Farmers',
     'Children'
   ]
-  constructor() { }
+  constructor(
+    public navCtrl : NavController
+  ) { }
 
   ngOnInit() {
     console.log(this.categories);
+  }
+  goToHomeResultsPage(category : string){
+    this.navCtrl.navigateRoot('/home-results/'+category);
   }
 
 }

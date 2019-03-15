@@ -5,7 +5,7 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-card *ngFor="let category of categories">
+  <ion-card *ngFor="let category of categories" (click)="goToHomeResultsPage(category)">
     <ion-card-header>
       <ion-card-title><b>{{category}}</b></ion-card-title>
     </ion-card-header>
@@ -15,4 +15,4 @@
       and climb a mountain or spend a week in the woods. Wash your spirit clean.
     </ion-card-content>
   </ion-card>
-</ion-content>
+</ion-content> 
